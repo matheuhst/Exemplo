@@ -34,7 +34,7 @@
 
         .produto-card:hover {
             transform: scale(1.03);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(238, 255, 0, 0.35);
         }
 
         #btnAnterior,
@@ -170,76 +170,45 @@
 
         </div>
     </body>
-    <script>
-        const areaProdutos = document.getElementById("areaProdutos");
-        const btnProximo = document.getElementById("btnProximo");
-        const btnAnterior = document.getElementById("btnAnterior");
-
-        let animando = false;
-
-        function larguraDoCard() {
-            const card = areaProdutos.querySelector(".produto-card");
-            const gap = 16; // gap-3 do Bootstrap é aproximadamente 16px
-            return card.offsetWidth + gap;
+    <style>
+        .produtos-carousel {
+            width: 80%;
+            overflow: hidden;
+            padding: 25px 35px;
+            box-sizing: border-box;
         }
 
-        function passarParaDireita() {
-            if (animando) return;
-            animando = true;
-
-            const primeiroCard = areaProdutos.firstElementChild;
-            const clone = primeiroCard.cloneNode(true);
-
-            areaProdutos.appendChild(clone);
-
-            setTimeout(() => {
-                areaProdutos.style.transition = "transform 0.5s ease";
-                areaProdutos.style.transform = `translateX(-${larguraDoCard()}px)`;
-            }, 10);
-
-            setTimeout(() => {
-                areaProdutos.style.transition = "none";
-                areaProdutos.style.transform = "translateX(0)";
-
-                areaProdutos.appendChild(primeiroCard);
-                clone.remove();
-
-                animando = false;
-            }, 520);
+        .produtos-track {
+            display: flex;
+            gap: 1rem;
+            transition: transform 0.5s ease;
         }
 
-        function passarParaEsquerda() {
-            if (animando) return;
-            animando = true;
-
-            const ultimoCard = areaProdutos.lastElementChild;
-            const clone = ultimoCard.cloneNode(true);
-
-            areaProdutos.insertBefore(clone, areaProdutos.firstElementChild);
-
-            areaProdutos.style.transition = "none";
-            areaProdutos.style.transform = `translateX(-${larguraDoCard()}px)`;
-
-            setTimeout(() => {
-                areaProdutos.style.transition = "transform 0.5s ease";
-                areaProdutos.style.transform = "translateX(0)";
-            }, 10);
-
-            setTimeout(() => {
-                areaProdutos.style.transition = "none";
-
-                areaProdutos.insertBefore(ultimoCard, areaProdutos.firstElementChild);
-                clone.remove();
-
-                animando = false;
-            }, 520);
+        .produto-card {
+            flex: 0 0 calc((100% - 2rem) / 3);
+            max-width: calc((100% - 2rem) / 3);
+            padding: 10px;
+            background: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        btnProximo.addEventListener("click", passarParaDireita);
-        btnAnterior.addEventListener("click", passarParaEsquerda);
+        .produto-card img {
+            max-width: 100%;
+            height: 130px;
+            object-fit: contain;
+        }
 
-        // Giro automático
-        setInterval(passarParaDireita, 3000);
-    </script>
+        .produto-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 5;
+        }
+
+        #btnAnterior,
+        #btnProximo {
+            width: 45px;
+            height: 45px;
+        }
+    </style>
 </body>
 </html>
