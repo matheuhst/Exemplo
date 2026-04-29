@@ -73,46 +73,80 @@
         </div>
 
         <hr />
-        <div class="container my-5">
-            <div class="row text-start justify-content-center align-items-start gap-3">
-                <div class="col-3 border border-warning rounded-3" style="padding-bottom: 5px;">
+        <div class="container my-5 position-relative">
+
+            <button id="btnAnterior" class="btn btn-dark rounded-circle position-absolute top-50 start-0 translate-middle-y z-3">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div id="areaProdutos" class="row text-start justify-content-center align-items-start gap-3">
+
+                <div class="col-3 border border-warning rounded-3 produto-card" style="padding-bottom: 5px;">
                     <figure class="text-center">
                         <img src="teclado.png" alt="teclado-mecanico">
                     </figure>
                     <div class="badge text-bg-primary text-wrap">
-                        <i class="bi bi-bag-plus"></i> PROMOÇÃO IMPERDÍVEL! 
+                        <i class="bi bi-bag-plus"></i> PROMOÇÃO IMPERDÍVEL!
                     </div>
                     <p class="fs-2"><b>Teclado Mecânico</b></p>
                     <p class="fs-6 text-body-secondary">Teclado Mecânico 75% TLK Hot-Swappable K500-B84 Com Fio Gaming</p>
-                    <p class="fs-3"><b>$99,00</b>  <span class="fs-6 text-decoration-line-through">$119,00</span></p>
+                    <p class="fs-3"><b>$99,00</b> <span class="fs-6 text-decoration-line-through">$119,00</span></p>
                     <button class="btn btn-warning"><i class="bi bi-cart-plus"></i> Adicionar ao carrinho</button>
                 </div>
-                <div class="col-3 border border-warning rounded-3" style="padding-bottom: 5px;">
+
+                <div class="col-3 border border-warning rounded-3 produto-card" style="padding-bottom: 5px;">
                     <figure class="text-center">
                         <img src="headset.png" alt="headset">
                     </figure>
                     <div class="badge text-bg-primary text-wrap">
-                        <i class="bi bi-bag-plus"></i> PROMOÇÃO IMPERDÍVEL! 
+                        <i class="bi bi-bag-plus"></i> PROMOÇÃO IMPERDÍVEL!
                     </div>
                     <p class="fs-2"><b>Headset Gamer</b></p>
-                    <p class="fs-6 text-body-secondary text-justify">Headset Gamer Warrior Straton USB 2.0 Stereo LED Azul PH244</p>
-                    <p class="fs-3"><b>$69,00</b>  <span class="fs-6 text-decoration-line-through">$89,00</span></p>
+                    <p class="fs-6 text-body-secondary">Headset Gamer Warrior Straton USB 2.0 Stereo LED Azul PH244</p>
+                    <p class="fs-3"><b>$69,00</b> <span class="fs-6 text-decoration-line-through">$89,00</span></p>
                     <button class="btn btn-warning"><i class="bi bi-cart-plus"></i> Adicionar ao carrinho</button>
                 </div>
-                <div class="col-3 border border-warning rounded-3" style="padding-bottom: 5px;">
+
+                <div class="col-3 border border-warning rounded-3 produto-card" style="padding-bottom: 5px;">
                     <figure class="text-center">
                         <img src="placavideo.png" alt="placa-de-video">
                     </figure>
                     <div class="badge text-bg-primary text-wrap">
-                        <i class="bi bi-bag-plus"></i> PROMOÇÃO IMPERDÍVEL! 
+                        <i class="bi bi-bag-plus"></i> PROMOÇÃO IMPERDÍVEL!
                     </div>
                     <p class="fs-2"><b>Placa de Vídeo</b></p>
                     <p class="fs-6 text-body-secondary">Placa de Vídeo PNY NVIDIA Quadro T400, 4GB, GDDR6, PCle 3.0</p>
-                    <p class="fs-3"><b>$299,00</b>  <span class="fs-6 text-decoration-line-through">$399,00</span></p>
+                    <p class="fs-3"><b>$299,00</b> <span class="fs-6 text-decoration-line-through">$399,00</span></p>
                     <button class="btn btn-warning"><i class="bi bi-cart-plus"></i> Adicionar ao carrinho</button>
                 </div>
+
             </div>
+
+            <button id="btnProximo" class="btn btn-dark rounded-circle position-absolute top-50 end-0 translate-middle-y z-3">
+                <i class="bi bi-chevron-right"></i>
+            </button>
         </div>
     </body>
+    <script>
+        const areaProdutos = document.getElementById("areaProdutos");
+        const btnProximo = document.getElementById("btnProximo");
+        const btnAnterior = document.getElementById("btnAnterior");
+
+        function girarParaDireita() {
+            const primeiroCard = areaProdutos.firstElementChild;
+            areaProdutos.appendChild(primeiroCard);
+        }
+
+        function girarParaEsquerda() {
+            const ultimoCard = areaProdutos.lastElementChild;
+            areaProdutos.insertBefore(ultimoCard, areaProdutos.firstElementChild);
+        }
+
+        btnProximo.addEventListener("click", girarParaDireita);
+        btnAnterior.addEventListener("click", girarParaEsquerda);
+
+        // Faz girar automaticamente a cada 3 segundos
+        setInterval(girarParaDireita, 3000);
+    </script>
 </body>
 </html>
