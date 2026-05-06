@@ -54,19 +54,23 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
     padding: 6px 10px;
+    border-radius: 6px;
     transition: box-shadow 0.3s ease;
 }
 
 .link-nav::after {
     content: "";
     position: absolute;
-    inset: 0; /* ocupa todo o elemento */
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
     border: 2px solid red;
-    border-radius: 6px;
-    transform: scale(0); /* começa invisível */
-    transition: transform 0.3s ease;
+    border-radius: 8px; /* um pouco maior pra acompanhar */
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .link-nav:hover::after {
