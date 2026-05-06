@@ -52,27 +52,32 @@
 
 .link-nav {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
 }
 
-.link-nav:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.5);
-    z-index: 5;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
+.link-nav::before,
 .link-nav::after {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: 4px;
-    width: 0%;
-    height: 2px;
-    background-color: rgb(189, 0, 0); /* pode mudar a cor aqui */
-    transition: width 0.3s ease;
+    inset: 0;
+    border: 2px solid red;
+    border-radius: 6px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.link-nav::after {
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.link-nav:hover::before {
+    transform: scaleX(1);
 }
 
 .link-nav:hover::after {
-    width: 100%;
+    transform: scaleY(1);
 }
