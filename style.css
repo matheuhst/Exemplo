@@ -54,30 +54,25 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+    gap: 6px;
     padding: 6px 10px;
+    transition: box-shadow 0.3s ease;
 }
 
-.link-nav::before,
 .link-nav::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: 0; /* ocupa todo o elemento */
     border: 2px solid red;
     border-radius: 6px;
-    transform: scaleX(0);
-    transform-origin: left;
+    transform: scale(0); /* começa invisível */
     transition: transform 0.3s ease;
 }
 
-.link-nav::after {
-    transform: scaleY(0);
-    transform-origin: top;
-}
-
-.link-nav:hover::before {
-    transform: scaleX(1);
-}
-
 .link-nav:hover::after {
-    transform: scaleY(1);
+    transform: scale(1); /* cresce até envolver tudo */
+}
+
+.link-nav:hover {
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
 }
