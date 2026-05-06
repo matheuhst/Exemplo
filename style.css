@@ -74,7 +74,8 @@
 }
 
 .link-nav:hover::after {
-    transform: scale(1); /* cresce até envolver tudo */
+    transform: scale(1);
+    opacity: 1;
 }
 
 .link-nav:hover {
