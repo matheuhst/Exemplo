@@ -50,9 +50,29 @@
     right: -55px;
 }
 
+.link-nav {
+    position: relative;
+    display: inline-block;
+}
+
 .link-nav:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(255, 0, 0, 0.5);
     z-index: 5;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(189, 0, 0); /* pode mudar a cor aqui */
+    transition: width 0.3s ease;
+}
+
+.link-nav:hover::after {
+    width: 100%;
 }
