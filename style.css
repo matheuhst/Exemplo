@@ -75,5 +75,9 @@
 
 .link-nav:hover {
     box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
-    transition: transform 1s ease;
+    transition: transform 0.1s ease;
+}
+
+.navigation{
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
 }
