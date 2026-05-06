@@ -52,7 +52,10 @@
 
 .link-nav {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* espaço entre ícone e texto */
+    padding-bottom: 4px; /* espaço pra linha aparecer */
 }
 
 .link-nav:hover {
@@ -66,12 +69,13 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 0; /* agora fica logo abaixo do texto */
     width: 0%;
     height: 2px;
-    background-color: rgb(189, 0, 0); /* pode mudar a cor aqui */
+    background-color: rgb(175, 0, 0);
     transition: width 0.3s ease;
 }
+
 
 .link-nav:hover::after {
     width: 100%;
