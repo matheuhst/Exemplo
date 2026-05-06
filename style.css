@@ -1,0 +1,57 @@
+.produtos-wrapper {
+    position: relative;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.produtos-carousel {
+    overflow: hidden;
+    padding: 30px 12px;
+}
+
+.produtos-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.produto-card {
+    flex: 0 0 calc((100% - 2rem) / 3);
+    max-width: calc((100% - 2rem) / 3);
+    min-height: 465px;
+    padding: 10px;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-card img {
+    width: 100%;
+    height: 135px;
+    object-fit: contain;
+}
+
+.produto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.btn-carousel {
+    width: 45px;
+    height: 45px;
+    z-index: 20;
+}
+
+#btnAnterior {
+    left: -55px;
+}
+
+#btnProximo {
+    right: -55px;
+}
+
+.link-nav:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+}
